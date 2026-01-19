@@ -4,8 +4,8 @@ import os
 
 router = APIRouter()
 
-OWNER_EMAIL = os.getenv("OWNER_EMAIL", "kane.soutoura.ks@gmail.com")
-OWNER_PASSWORD = os.getenv("OWNER_PASSWORD", "Test")
+OWNER_EMAIL = os.getenv("OWNER_EMAIL", "kane@soutouraks.com")
+OWNER_PASSWORD = os.getenv("OWNER_PASSWORD", "Kane-soutoura26")
 
 @router.post("/login", response_model=LoginResponse)
 def login(credentials: LoginRequest):
