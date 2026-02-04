@@ -10,14 +10,19 @@ router = APIRouter()
 @router.get("/", response_model=List[ProductResponse])
 def get_products(
     category: Optional[str] = Query(None),
+    sous_category: Optional[str] = Query(None),
     search: Optional[str] = Query(None),
     db: Session = Depends(get_db)
 ):
-    """Get all products with optional filtering by category and search"""
+    """Get all products with optional filtering by category, sous-category and search"""
     query = db.query(Product)
     
     if category:
         query = query.filter(Product.category == category)
+    
+    # ← AJOUTÉ : filtre par sous-catégorie
+    if sous_category:
+        query = query.filter(Product.sous_category == sous_category)
     
     if search:
         search_pattern = f"%{search}%"

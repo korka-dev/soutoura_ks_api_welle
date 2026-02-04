@@ -10,6 +10,7 @@ class Product(Base):
     description = Column(Text)
     price = Column(Float, nullable=False)
     category = Column(String(100))
+    sous_category = Column(String(100)) 
     stock = Column(Integer, default=0)
     images = Column(JSON)
     sizes = Column(JSON, default=[])

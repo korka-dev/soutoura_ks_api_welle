@@ -7,6 +7,7 @@ class ProductBase(BaseModel):
     description: Optional[str] = None
     price: float
     category: Optional[str] = None
+    sous_category: Optional[str] = None
     stock: int = 0
     images: Optional[List[str]] = []
     sizes: Optional[List[str]] = []
@@ -20,9 +21,10 @@ class ProductUpdate(BaseModel):
     description: Optional[str] = None
     price: Optional[float] = None
     category: Optional[str] = None
+    sous_category: Optional[str] = None
     stock: Optional[int] = None
     images: Optional[List[str]] = None
-    sizes: Optional[List[str]] = None
+    sizes: Optional[List[str]] = None  
     colors: Optional[List[str]] = None
 
 class ProductResponse(ProductBase):
